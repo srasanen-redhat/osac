@@ -97,7 +97,7 @@ operator:
   enabled: true
   image:
     repository: ghcr.io/osac-project/osac-operator
-    tag: latest  # PLACEHOLDER -- overwritten at release time by osac-build-and-publish.yaml
+    tag: sha-db1faeb
     pullPolicy: Always
   replicaCount: 1
   resources:
@@ -183,7 +183,7 @@ service:
   images:
     service:
       repository: ghcr.io/osac-project/fulfillment-service
-      tag: latest  # PLACEHOLDER -- overwritten at release time by osac-build-and-publish.yaml
+      tag: sha-db1faeb
       pullPolicy: Always
     envoy:
       repository: ghcr.io/osac-project/envoy
@@ -284,7 +284,7 @@ aap:
       imagePullPolicy: IfNotPresent
   bootstrap:
     enabled: true
-    image: ghcr.io/osac-project/osac-aap:latest  # PLACEHOLDER -- overwritten at release time by osac-build-and-publish.yaml
+    image: ghcr.io/osac-project/osac-aap:sha-db1faeb
     backoffLimit: 15
     readinessConsecutiveSuccesses: 3
     gateway:
@@ -296,9 +296,9 @@ aap:
     secret: "config-as-code-ig"
     # Maximum number of add-on operator jobs allowed to run concurrently.
     addonOperatorMaxConcurrentJobs: 50
-    eeImage: ""
-    projectGitUri: ""
-    projectGitBranch: ""
+    eeImage: ghcr.io/osac-project/osac-aap:sha-db1faeb
+    projectGitUri: https://github.com/srasanen-redhat/osac
+    projectGitBranch: db1faeb588343d0c8ab60ba02bdc28e0b5610adb
   instanceGroups:
     clusterFulfillment:
       enabled: false
@@ -391,7 +391,7 @@ metering:
   enabled: false
   image:
     repository: ghcr.io/osac-project/metering-service
-    tag: latest  # PLACEHOLDER -- overwritten at release time by osac-build-and-publish.yaml
+    tag: sha-db1faeb
     pullPolicy: Always
 
 # --- CSI Driver ---
@@ -417,7 +417,7 @@ csiDriver:
       allowStub: false
   image:
     repository: ghcr.io/osac-project/osac-csi-driver
-    tag: latest  # PLACEHOLDER -- overwritten at release time by osac-build-and-publish.yaml
+    tag: sha-db1faeb
     pullPolicy: Always
 
 # --- CSI Backends ---
@@ -430,7 +430,7 @@ bmfCrds: {}
 bmf:
   image:
     repository: ghcr.io/osac-project/bare-metal-fulfillment-operator
-    tag: latest  # PLACEHOLDER -- overwritten at release time by osac-build-and-publish.yaml
+    tag: sha-db1faeb
     pullPolicy: Always
   replicaCount: 1
   resources:
